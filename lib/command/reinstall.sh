@@ -10,13 +10,13 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        $PACKAGER install --reinstall "$@" 
+        $SUDO_PACKAGER install --reinstall "$@" 
         ;;
     redhat)
-        $PACKAGER reinstall "$@"
+        $SUDO_PACKAGER reinstall "$@"
         ;;
     arch)
-        $PACKAGER -S "$@"
+        $SUDO_PACKAGER -S "$@"
         ;;
     *)
         echo "paki: invalid linux system variable settings" 1>&2

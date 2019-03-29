@@ -10,13 +10,13 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        $PACKAGER autoremove 
+        $SUDO_PACKAGER autoremove 
         ;;
     redhat)
-        $PACKAGER autoremove
+        $SUDO_PACKAGER autoremove
         ;;
     arch)
-        $PACKAGER -Qdtq | $PACKAGER -Rs -
+        $SUDO_PACKAGER -Qdtq | $SUDO_PACKAGER -Rs -
         ;;
     *)
         echo "paki: invalid linux system variable settings" 1>&2

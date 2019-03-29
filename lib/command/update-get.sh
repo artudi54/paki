@@ -10,13 +10,13 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        $PACKAGER update 
+        $SUDO_PACKAGER update 
         ;;
     redhat)
-        $PACKAGER makecache
+        $SUDO_PACKAGER makecache
         ;;
     arch)
-        $PACKAGER -Syy
+        $SUDO_PACKAGER -Syy
         ;;
     *)
         echo "paki: invalid linux system variable settings" 1>&2

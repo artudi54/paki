@@ -8,7 +8,6 @@ show-help() {
     echo "paki is multiplatform package manager creating common"
     echo "intefrace for different linux distributions."
     echo "paki is using system package manager for it's operations."
-    echo
     echo "It currently supports Debian, Arch Linux, Fedora and CentOS systems."
     echo
     echo "Supported commands:"

@@ -10,13 +10,13 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        $PACKAGER full-upgrade 
+        $SUDO_PACKAGER update && $SUDO_PACKAGER full-upgrade 
         ;;
     redhat)
-        $PACKAGER distro-sync
+        $SUDO_PACKAGER distro-sync
         ;;
     arch)
-        $PACKAGER -Syu
+        $SUDO_PACKAGER -Syu
         ;;
     *)
         echo "paki: invalid linux system variable settings" 1>&2

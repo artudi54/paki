@@ -10,13 +10,13 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        $PACKAGER remove "$@" 
+        $SUDO_PACKAGER remove "$@" 
         ;;
     redhat)
-        $PACKAGER remove "$@"
+        $SUDO_PACKAGER remove "$@"
         ;;
     arch)
-        $PACKAGER -R "$@"
+        $SUDO_PACKAGER -R "$@"
         ;;
     *)
         echo "paki: invalid linux system variable settings" 1>&2

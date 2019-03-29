@@ -53,6 +53,11 @@ case "$comm" in
         "$DIRECTORY/command/list.sh" "$@"
         exit
         ;;
+    list-all)
+        shift
+        "$DIRECTORY/command/list-all.sh" "$@"
+        exit
+        ;;
     reinstall)
         shift
         "$DIRECTORY/command/reinstall.sh" "$@"

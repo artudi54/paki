@@ -1,6 +1,7 @@
 #!/bin/bash
 DIRECTORY="$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")"
 source "$DIRECTORY/util/configure.sh"
+source "$DIRECTORY/util/util.sh"
 
 if [ -z "$LINUX_SYSTEM" -o -z "$PACKAGER" ]; then
     echo "paki: could not find any suitable package manager in your PATH" 1>&2

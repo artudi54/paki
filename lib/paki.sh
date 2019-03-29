@@ -15,6 +15,9 @@ show-help() {
     echo "  install - install new packages"
     echo "  reinstall - reinstall existing package or install new"
     echo "  remove - remove installed package"
+    echo "  update - update all installed packages"
+    echo "  update-dist - perform full system update"
+    echo "  update-get - get available updates"
     echo ""
     echo "Run 'paki <command> --help' for more information about specific command."
     echo ""
@@ -49,6 +52,21 @@ case "$comm" in
     remove)
         shift
         "$DIRECTORY/command/remove.sh" "$@"
+        exit
+        ;;
+    update)
+        shift
+        "$DIRECTORY/command/update.sh" "$@"
+        exit
+        ;;
+    update-dist)
+        shift
+        "$DIRECTORY/command/update-dist.sh" "$@"
+        exit
+        ;;
+    update-get)
+        shift
+        "$DIRECTORY/command/update-get.sh" "$@"
         exit
         ;;
     *)

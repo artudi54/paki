@@ -13,6 +13,7 @@ show-help() {
     echo
     echo "Supported commands:"
     echo "  install - install new packages"
+    echo "  list - list installed packages"
     echo "  reinstall - reinstall existing package or install new"
     echo "  remove - remove installed package"
     echo "  remove-unused - remove unused packages installed as dependencies"
@@ -44,6 +45,11 @@ case "$comm" in
     install)
         shift
         "$DIRECTORY/command/install.sh" "$@"
+        exit
+        ;;
+    list)
+        shift
+        "$DIRECTORY/command/list.sh" "$@"
         exit
         ;;
     reinstall)

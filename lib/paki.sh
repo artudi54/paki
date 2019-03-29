@@ -14,6 +14,7 @@ show-help() {
     echo "Supported commands:"
     echo "  install - install new packages"
     echo "  list - list installed packages"
+    echo "  list-all - list all available packages"
     echo "  reinstall - reinstall existing package or install new"
     echo "  remove - remove installed package"
     echo "  remove-unused - remove unused packages installed as dependencies"

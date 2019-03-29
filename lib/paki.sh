@@ -15,6 +15,7 @@ show-help() {
     echo "  install - install new packages"
     echo "  reinstall - reinstall existing package or install new"
     echo "  remove - remove installed package"
+    echo "  remove-unused - remove unused packages installed as dependencies"
     echo "  update - update all installed packages"
     echo "  update-dist - perform full system update"
     echo "  update-get - get available updates"
@@ -52,6 +53,11 @@ case "$comm" in
     remove)
         shift
         "$DIRECTORY/command/remove.sh" "$@"
+        exit
+        ;;
+    remove-unused)
+        shift
+        "$DIRECTORY/command/remove-unused.sh" "$@"
         exit
         ;;
     update)

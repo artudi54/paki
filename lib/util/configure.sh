@@ -16,7 +16,7 @@ elif [ -f "/etc/arch-release" ]; then
     LINUX_SYSTEM="arch"
     if which yay 2>/dev/null 1>&2; then
         PACKAGER="yay"
-    if which yaourt 2>/dev/null 1>&2; then
+    elif which yaourt 2>/dev/null 1>&2; then
         PACKAGER="yaourt"
     elif whitch pacman 2>/dev/null 1>&2; then
         PACKAGER="sudo pacman"

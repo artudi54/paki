@@ -15,6 +15,7 @@ show-help() {
     echo "  install - install new packages"
     echo "  list - list installed packages"
     echo "  list-all - list all available packages"
+    echo "  list-updates - list packages with available updates"
     echo "  reinstall - reinstall existing package or install new"
     echo "  remove - remove installed package"
     echo "  remove-unused - remove unused packages installed as dependencies"
@@ -56,6 +57,11 @@ case "$comm" in
     list-all)
         shift
         "$DIRECTORY/command/list-all.sh" "$@"
+        exit
+        ;;
+    list-updates)
+        shift
+        "$DIRECTORY/command/list-updates.sh" "$@"
         exit
         ;;
     reinstall)

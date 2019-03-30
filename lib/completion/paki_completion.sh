@@ -11,11 +11,11 @@ _paki_completion() {
 
     if [ "${COMP_WORDS[1]:0:1}" = "-" ]; then
         echo yes
-        COMPREPLY=($(compgen -W "--help" "${COMP_WORDS[1]}"))
+        COMPREPLY=($(compgen -W "--help" -- "${COMP_WORDS[1]}"))
     else
         local commands
         commands="install list list-all list-updates reinstall remove remove-unused search update update-dist update-get"
-        COMPREPLY=($(compgen -W "$commands" "${COMP_WORDS[1]}"))
+        COMPREPLY=($(compgen -W "$commands" -- "${COMP_WORDS[1]}"))
     fi
 }
 

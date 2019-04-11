@@ -28,3 +28,11 @@ elif [ -f "/etc/arch-release" ]; then
         SUDO_PACKAGER="sudo pacman"
     fi
 fi
+
+if which snap 2>/dev/null 1>&2; then
+    SNAP_PACKAGER="sudo snap"
+fi
+
+if which flatpak 2>/dev/null 1>&2; then
+    FLATPAK_PACKAGER="sudo flatpak"
+fi

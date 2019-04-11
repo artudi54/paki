@@ -1,11 +1,11 @@
 # Completion functions for paki command
 
-_paki_completion_switch() {
+_paki_switch() {
     return
 }
-_paki_completion() {
+_paki() {
     if [ "$COMP_CWORD" -ne 1 ]; then
-        _paki_completion_switch
+        _paki_switch
         return
     fi
 
@@ -19,4 +19,4 @@ _paki_completion() {
     fi
 }
 
-complete -F _paki_completion paki
+complete -F _paki paki

@@ -23,3 +23,10 @@ case "$LINUX_SYSTEM" in
         exit 3
 esac
 
+if [ ! -z "$SNAP_PACKAGER" ]; then
+    $SNAP_PACKAGER refresh
+fi
+
+if [ ! -z "$FLATPAK_PACKAGER" ]; then
+    $FLATPAK_PACKAGER update
+fi

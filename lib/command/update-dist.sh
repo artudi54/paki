@@ -34,7 +34,7 @@ case "$LINUX_SYSTEM" in
         if [ "$NOCHECK" -eq 1 ]; then
             $SUDO_PACKAGER update && $SUDO_PACKAGER full-upgrade -y 
         else
-            $SUDO_PACKAGER update && $SUDO_PACKAGER fullupgrade 
+            $SUDO_PACKAGER update && $SUDO_PACKAGER full-upgrade 
         fi
         ;;
     redhat)

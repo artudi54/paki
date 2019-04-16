@@ -1,4 +1,5 @@
 # Sets LINUX_SYSTEM and PACKAGER variables
+set -e
 
 if [ -f "/etc/debian_version" ]; then
     LINUX_SYSTEM="debian"

@@ -1,5 +1,6 @@
 #!/bin/bash
 DIRECTORY="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+source "$DIRECTORY/util/util.sh"
 
 show-help() {
     echo "paki 1.0 (multiarch)"
@@ -22,15 +23,11 @@ show-help() {
     echo "  update - update all installed packages"
     echo "  update-dist - perform full system update"
     echo "  update-get - get available updates"
-    echo ""
-    echo "Run 'paki <command> --help' for more information about specific command."
-    echo ""
+    echo
+    echo "Run 'paki --help <command>' for more information about specific command."
+    echo
 }
 
-show-error() {
-    echo "paki: invalid command: $1"
-    return 1
-}
 
 if [ "$#" -eq 0 ]; then
     show-help
@@ -38,68 +35,45 @@ if [ "$#" -eq 0 ]; then
 fi
 
 comm="$1"
+shift
 case "$comm" in
     --help)
         show-help
-        exit
         ;;
     install)
-        shift
         "$DIRECTORY/command/install.sh" "$@"
-        exit
         ;;
     list)
-        shift
         "$DIRECTORY/command/list.sh" "$@"
-        exit
         ;;
     list-all)
-        shift
         "$DIRECTORY/command/list-all.sh" "$@"
-        exit
         ;;
     list-updates)
-        shift
         "$DIRECTORY/command/list-updates.sh" "$@"
-        exit
         ;;
     reinstall)
-        shift
         "$DIRECTORY/command/reinstall.sh" "$@"
-        exit
         ;;
     remove)
-        shift
         "$DIRECTORY/command/remove.sh" "$@"
-        exit
         ;;
     remove-unused)
-        shift
         "$DIRECTORY/command/remove-unused.sh" "$@"
-        exit
         ;;
     search)
-        shift
         "$DIRECTORY/command/search.sh" "$@"
-        exit
         ;;
     update)
-        shift
         "$DIRECTORY/command/update.sh" "$@"
-        exit
         ;;
     update-dist)
-        shift
         "$DIRECTORY/command/update-dist.sh" "$@"
-        exit
         ;;
     update-get)
-        shift
         "$DIRECTORY/command/update-get.sh" "$@"
-        exit
         ;;
     *)
-        show-error "$1"
-        exit
+        show-error-command "paki" "$comm"
 esac
 

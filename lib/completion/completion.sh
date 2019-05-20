@@ -72,7 +72,6 @@ _paki() {
 }
 
 
-echo "path: ${BASH_SOURCE[@]}"
 _paki_completion_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 complete -F _paki paki
 

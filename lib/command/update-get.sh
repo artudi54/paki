@@ -8,23 +8,23 @@ if [ "$#" -ne 0 ]; then
     exit 1
 fi
 
-if [ -z "$LINUX_SYSTEM" -o -z "$PACKAGER" ]; then
-    echo "paki: could not find any suitable package manager in your PATH" 1>&2
-    exit 2
-fi
+update-get-system() {
+    case "$LINUX_SYSTEM" in
+        debian)
+            $SUDO_PACKAGER update 
+            ;;
+        redhat)
+            $SUDO_PACKAGER makecache
+            ;;
+        arch)
+            $SUDO_PACKAGER -Syy
+            ;;
+        *)
+            echo "paki: invalid linux system variable settings" 1>&2
+            return 3
+    esac
+}
 
-case "$LINUX_SYSTEM" in
-    debian)
-        $SUDO_PACKAGER update 
-        ;;
-    redhat)
-        $SUDO_PACKAGER makecache
-        ;;
-    arch)
-        $SUDO_PACKAGER -Syy
-        ;;
-    *)
-        echo "paki: invalid linux system variable settings" 1>&2
-        exit 3
-esac
+validate-packager
+update-get-system
 

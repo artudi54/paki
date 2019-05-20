@@ -20,9 +20,9 @@ show-help() {
     echo "  remove - remove installed package"
     echo "  remove-unused - remove unused packages installed as dependencies"
     echo "  search - search for packages to install"
-    echo "  update - update all installed packages"
-    echo "  update-dist - perform full system update"
-    echo "  update-get - get available updates"
+    echo "  *update - update all installed packages"
+    echo "  *update-dist - perform full system update"
+    echo "  *update-get - get available updates"
     echo
     echo "Run 'paki --help <command>' for more information about specific command."
     echo

@@ -15,6 +15,13 @@ show-error-option() {
     return 1
 }
 
+validate-packager() {
+    if [ -z "$LINUX_SYSTEM" -o -z "$PACKAGER" ]; then
+        echo "paki: could not find any suitable package manager in your PATH" 1>&2
+        return 2
+    fi
+}
+
 contains-help() {
     for str in $@; do
         if [ "$str" = "--help"]; then

@@ -10,8 +10,8 @@ if [ -f "/etc/debian_version" ]; then
 elif [ -f "/etc/redhat-release" ]; then
     LINUX_SYSTEM="redhat"
     if which dnf 2>/dev/null 1>&2; then
-        PACKAGER="sudo dnf"
-        SUDO_PACKAGER="dnf"
+        PACKAGER="dnf"
+        SUDO_PACKAGER="sudo dnf"
     elif whitch yum 2>/dev/null 1>&2; then
         PACKAGER="yum"
         SUDO_PACKAGER="sudo yum"

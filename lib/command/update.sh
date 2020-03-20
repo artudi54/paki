@@ -77,7 +77,7 @@ update-system() {
             ;;
         arch)
             if [ "$nocheck" -eq 1 ]; then
-                $SUDO_PACKAGER -Syu --nocheck
+                $SUDO_PACKAGER -Syu --noconfirm
             else
                 $SUDO_PACKAGER -Syu
             fi

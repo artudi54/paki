@@ -10,19 +10,7 @@ fi
 
 case "$LINUX_SYSTEM" in
     debian)
-        if [ "$($SUDO_PACKAGER list "$@" 2>/dev/null | wc -l)" -gt 1 ]; then 
-            $SUDO_PACKAGER install "$@" 
-        elif [ ! -z "$SNAP_PACKAGER" ]; then
-            for package in "$@"; do
-                if grep -w "$package" "/var/cache/snapd/names" 2>/dev/null 1>&2; then
-                    $SNAP_PACKAGER install "$@"
-                    exit
-                fi
-            done
-        else
-            echo "paki: no matching packages found in remote repositories" 1>&2
-            exit 10
-        fi
+        $SUDO_PACKAGER install "$@"
         ;;
     redhat)
         $SUDO_PACKAGER install "$@"
